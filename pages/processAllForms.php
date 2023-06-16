@@ -100,7 +100,7 @@ if ($_POST['action'] === "POST" && isset($_POST["name"]) && isset($_POST["phone"
   } catch (Exception $exception) {
     showAlert($exception->getMessage());
   }
-  header("refresh:0.1;url=" . PAGES_PATH . '/insert.php');
+  header("refresh:0.1;url=" . PAGES_PATH . '/list.php');
 }
 
 

@@ -6,7 +6,7 @@ require_once('../functions/showAlert.php');
 
 require_once("../dao/AgendaDAO.php");
 
-setHead("Lista", "Pagina para listar todos os contatos");
+setHead("Contatos", "Pagina para listar todos os contatos");
 
 require_once('../layout/menu.php');
 
@@ -51,22 +51,39 @@ try {
 }
 ?>
 
-<div class="Container">
-  <div class="List">
-    <h1>Lista</h1>
-    <div class="Search">
-      <form method="get">
-        <select id="key" name="key">
-          <option value=""></option>
-          <option value="name">Nome</option>
-          <option value="phone">Telefone</option>
-        </select>
-        <input type="text" name="value" id="value">
-        <input type="submit" value="Consultar">
-      </form>
-    </div>
-    <?php
-    if (count($data) > 0) {
+<div class="Container Contacts">
+    <div class="Content">
+        <h1>Contatos</h1>
+        <div class="Actions">
+            <div class="Search">
+                <form method="get">
+                    <select id="key" name="key">
+                        <option value=""></option>
+                        <option value="name">Nome</option>
+                        <option value="phone">Telefone</option>
+                    </select>
+                    <input type="text" name="value" id="value">
+                    <!-- <input type="submit" value="Consultar"> -->
+                    <button class="IconButton">
+                        <span class='material-icons'>
+                            search
+                        </span>
+                    </button>
+                </form>
+            </div>
+            <div class="Create">
+                <form action="<?php echo PAGES_PATH . '/insert.php' ?>" method="post">
+                    <button class="IconButton tooltip">
+                        <span class="material-icons">
+                            add_circle_outline
+                        </span>
+                        <p class="tooltiptext">Criar contato</p>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="List">
+            <?php
       $html = "<table>\n";
       $html .= "<tr>\n";
       $html .= "<th>ID</th>\n";
@@ -84,11 +101,19 @@ try {
                     <div>
                       <form action='" . PAGES_PATH . '/update.php' . "' method='get'>
                         <input type='hidden' name='id' value='" . $value['id'] . "'>
-                        <input class='BtnEdit' type='submit' value='Editar'>
+                        <button>
+                          <span class='material-icons BtnEdit'>
+                            edit
+                          </span>
+                        </button>
                       </form>
                       <form method='post'>
                         <input type='hidden' name='id' value='" . $value['id'] . "'>
-                        <input class='BtnDelete' type='submit' value='Excluir'>
+                        <button>
+                          <span class='material-icons BtnDelete'>
+                          delete
+                          </span>
+                        </button>
                       </form>
                     </div>
                   </td>\n";
@@ -97,9 +122,9 @@ try {
 
       $html .= "</table>\n";
       echo $html;
-    }
-    ?>
-  </div>
+      ?>
+        </div>
+    </div>
 </div>
 
 

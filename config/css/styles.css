@@ -67,6 +67,54 @@ footer {
   color: black;
 }
 
+/* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
 .Main {
   height: calc(100% - 80px);
   display: flex;
@@ -92,6 +140,15 @@ footer {
   font-weight: 200;
 }
 
+.Main .Greeting .LastLogin,
+.Main .Greeting .LastLogout {
+  padding: 2px 5px;
+  border-radius: 4px;
+  color: #C2DEDC;
+  background-color: #526D82;
+  font-style: italic;
+}
+
 .Container {
   padding: 20px;
   margin: 50px;
@@ -102,6 +159,86 @@ footer {
 
   border-radius: 5px;
   background-color: #f2f2f2;
+}
+
+.Contacts .Content {
+  /* justify-content: unset;
+  align-items: unset; */
+  max-width: 600px;
+  width: 100%;
+}
+
+.Contacts .Actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 25px;
+
+}
+
+.Contacts .Actions .Create {
+  float: right;
+
+}
+
+.Contacts .Actions .Create .IconButton span {
+  font-size: 38px;
+}
+
+
+.Contacts .Actions .Search {
+  float: left;
+  max-width: 300px;
+  padding: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  display: flex;
+}
+
+.Contacts .Actions .Search select {
+  height: 1.8rem;
+  padding: 3px 5px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.Contacts .Actions .Search form {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+}
+
+.Contacts .List {
+  width: 100%;
+}
+
+.Contacts .List table {}
+
+.Contacts .List table tr td div {
+  display: flex;
+  gap: 10px;
+  /* width: 50px; */
+}
+
+.Contacts .List .BtnEdit,
+.Contacts .List .BtnDelete {
+  background-color: #539165;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Contacts .List .BtnDelete {
+  background-color: #ea5455;
 }
 
 /*************/
@@ -134,16 +271,37 @@ input[type="submit"] {
   font-weight: bold;
 }
 
+/* .SignIn h1,
+.SignUp h1,
+.List h1,
+.Insert h1,
+.Update h1 {
+  text-align: center;
+} */
+
+.Container h1 {
+  text-align: center;
+}
+
+.IconButton {
+  background-color: #0b2447;
+  color: #fff;
+  padding: 8px 10px 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.IconButton span {
+  font-size: 24px;
+}
+
 /**************/
 /*** INSERT ***/
 /**************/
 
-.Insert {
-}
+.Insert {}
 
-.Insert h1 {
-  text-align: center;
-}
 
 /************/
 /*** FIND ***/
@@ -157,7 +315,7 @@ input[type="submit"] {
   gap: 30px;
 }
 
-.Find .Search {
+/* .Find .Search {
   width: 450px;
   padding: 5px;
   border: 1px solid #000;
@@ -173,17 +331,13 @@ input[type="submit"] {
   gap: 5px;
 }
 
-.Find .Search input[type="submit"] {
-  width: auto;
-}
-
 .Find .Search input[type="number"] {
   flex: 1;
 }
 
 .Find .Search label {
   font-weight: bold;
-}
+} */
 
 table {
   border-collapse: collapse;
@@ -216,86 +370,21 @@ table th {
 }
 
 /***********************/
-/*** UpdateAndDelete ***/
+/*** List ***/
 /***********************/
 
-.List h1 {
-  text-align: center;
-}
 
-.List .Search {
-  width: 600px;
-  padding: 5px;
-  border: 1px solid #000;
-  border-radius: 5px;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  display: flex;
-}
 
-.List .Search form {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 5px;
-}
+/************/
+/*  UPDATE  */
+/************/
 
-.List .Search select {
-  height: 1.8rem;
-  padding: 3px 5px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
 
-.List .Search input[type="submit"] {
-  width: auto;
-}
-
-.List .Search input[type="text"] {
-  flex: 1;
-}
-
-.List table {
-  margin-top: 25px;
-}
-
-.List table tr td div {
-  display: flex;
-  gap: 10px;
-  /* width: 50px; */
-}
-
-.List table tr td div form {
-}
-
-.List .BtnEdit,
-.List .BtnDelete {
-  background-color: #539165;
-  color: #fff;
-  padding: 10px;
-  border-radius: 5px;
-  font-weight: bold;
-  /* cursor: pointer; */
-}
-
-.List .BtnDelete {
-  background-color: #ea5455;
-}
-
-.List input {
-  width: auto;
-}
+.Update {}
 
 /************/
 /*** SignIn ***/
 /************/
-
-.SignIn h1 {
-  text-align: center;
-}
 
 .SignIn form {
   max-width: 600px;
@@ -311,10 +400,6 @@ table th {
 /************/
 /*** SignUp ***/
 /************/
-
-.SignUp h1 {
-  text-align: center;
-}
 
 .SignUp form {
   max-width: 600px;

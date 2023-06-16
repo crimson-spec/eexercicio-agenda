@@ -5,6 +5,7 @@
  */
 
 $pastaInterna = '/agenda';
+define('ASSETS_PATH', "{$pastaInterna}/assets");
 define('CSS_PATH', "{$pastaInterna}/config/css");
 define('PAGES_PATH', "{$pastaInterna}/pages");
 
@@ -16,4 +17,4 @@ define('PAGES_PATH', "{$pastaInterna}/pages");
 define('DB_HOST', "localhost");
 define('DB_NAME', "web");
 define('DB_USER', "root");
-define('DB_PASS', "");
+define('DB_PASS', "ifsp");

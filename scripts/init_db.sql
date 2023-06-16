@@ -3,9 +3,9 @@ USE `web`;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(45) NOT NULL,
-  `is_admin` tinyint(1) NOT NULL DEFAULT 0,
+  `full_name` varchar(120) NOT NULL,
+  `username` varchar(120) NOT NULL,
+  `password` varchar(120) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

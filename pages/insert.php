@@ -4,7 +4,7 @@ require_once('../functions/verifySession.php');
 require_once('../functions/setFooter.php');
 require_once('../functions/setHead.php');
 
-setHead("Cadastrar", "Pagina de cadastro de contatos");
+setHead("Cadastro", "Pagina de cadastro de contatos");
 
 require_once('../layout/menu.php');
 ?>
